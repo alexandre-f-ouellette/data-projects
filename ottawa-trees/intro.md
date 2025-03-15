@@ -1,11 +1,10 @@
-# Welcome to your Jupyter Book
+# Ottawa Tree Statistics
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This book serves as a Data Analysis project to practice various techniques and showcase them. 
 
-Check out the content pages bundled with this sample book to see more.
+I will be updating and expanding on this project as time permits and as I learn new techniques. 
+
+Hope you all enjoy it and thanks for taking a look!
 
 ```{tableofcontents}
 ```
