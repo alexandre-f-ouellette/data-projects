@@ -4,4 +4,5 @@
 format: jb-book
 root: intro
 chapters:
+- file: species-data.ipynb
 - file: tree-stats.ipynb
