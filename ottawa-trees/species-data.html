@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Species Data &#8212; Data Projects</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ottawa-trees/species-data';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Basic Tree Stats" href="tree-stats.html" />
+    <link rel="prev" title="Alexandre Ouellette - Data Projects" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Projects</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Alexandre Ouellette -  Data Projects
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ottawa Tree Statistics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Species Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tree-stats.html">Basic Tree Stats</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ndoku Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ndoku-julia/n2doku_adj_mtx.html">N2-Doku Adjacency Matrix</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/alexandre-f-ouellette/data-projects" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/alexandre-f-ouellette/data-projects/issues/new?title=Issue%20on%20page%20%2Fottawa-trees/species-data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ottawa-trees/species-data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Species Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-description">Project Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources">Sources</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="species-data">
+<h1>Species Data<a class="headerlink" href="#species-data" title="Link to this heading">#</a></h1>
+<section id="project-description">
+<h2>Project Description<a class="headerlink" href="#project-description" title="Link to this heading">#</a></h2>
+<p>In this I will be extracting/scraping and cleaning up some data about tree species for use in the Tree Stats book.</p>
+</section>
+<section id="sources">
+<h2>Sources<a class="headerlink" href="#sources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://treecanada.ca">treecanada.ca</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">([</span><span class="s1">&#39;popular&#39;</span><span class="p">,</span> <span class="s1">&#39;punkt_tab&#39;</span><span class="p">,</span> <span class="s1">&#39;averaged_perceptron_tagger_eng&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading collection &#39;popular&#39;
+[nltk_data]    | 
+[nltk_data]    | Downloading package cmudict to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package cmudict is already up-to-date!
+[nltk_data]    | Downloading package gazetteers to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package gazetteers is already up-to-date!
+[nltk_data]    | Downloading package genesis to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package genesis is already up-to-date!
+[nltk_data]    | Downloading package gutenberg to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package gutenberg is already up-to-date!
+[nltk_data]    | Downloading package inaugural to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package inaugural is already up-to-date!
+[nltk_data]    | Downloading package movie_reviews to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package movie_reviews is already up-to-date!
+[nltk_data]    | Downloading package names to /home/al3x/nltk_data...
+[nltk_data]    |   Package names is already up-to-date!
+[nltk_data]    | Downloading package shakespeare to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package shakespeare is already up-to-date!
+[nltk_data]    | Downloading package stopwords to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package stopwords is already up-to-date!
+[nltk_data]    | Downloading package treebank to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package treebank is already up-to-date!
+[nltk_data]    | Downloading package twitter_samples to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package twitter_samples is already up-to-date!
+[nltk_data]    | Downloading package omw to /home/al3x/nltk_data...
+[nltk_data]    |   Package omw is already up-to-date!
+[nltk_data]    | Downloading package omw-1.4 to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package omw-1.4 is already up-to-date!
+[nltk_data]    | Downloading package wordnet to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package wordnet is already up-to-date!
+[nltk_data]    | Downloading package wordnet2021 to
+[nltk_data]    |     /home/al3x/nltk_data...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Package wordnet2021 is already up-to-date!
+[nltk_data]    | Downloading package wordnet31 to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package wordnet31 is already up-to-date!
+[nltk_data]    | Downloading package wordnet_ic to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package wordnet_ic is already up-to-date!
+[nltk_data]    | Downloading package words to /home/al3x/nltk_data...
+[nltk_data]    |   Package words is already up-to-date!
+[nltk_data]    | Downloading package maxent_ne_chunker to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package maxent_ne_chunker is already up-to-date!
+[nltk_data]    | Downloading package punkt to /home/al3x/nltk_data...
+[nltk_data]    |   Package punkt is already up-to-date!
+[nltk_data]    | Downloading package snowball_data to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package snowball_data is already up-to-date!
+[nltk_data]    | Downloading package averaged_perceptron_tagger to
+[nltk_data]    |     /home/al3x/nltk_data...
+[nltk_data]    |   Package averaged_perceptron_tagger is already up-
+[nltk_data]    |       to-date!
+[nltk_data]    | 
+[nltk_data]  Done downloading collection popular
+[nltk_data]  Downloading package punkt_tab to /home/al3x/nltk_data...
+[nltk_data]    Package punkt_tab is already up-to-date!
+[nltk_data]  Downloading package averaged_perceptron_tagger_eng to
+[nltk_data]      /home/al3x/nltk_data...
+[nltk_data]    Package averaged_perceptron_tagger_eng is already up-
+[nltk_data]        to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://treecanada.ca/resources/trees-of-canada/&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:136.0) Gecko/20100101 Firefox/136.0&quot;</span><span class="p">}</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> 
+    <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> 
+    <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">)</span>
+
+<span class="n">data_out</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="n">cells</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="n">cells</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="n">common_name</span> <span class="o">=</span> <span class="n">names</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="n">latin_name</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span><span class="n">names</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">names</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">)]</span>
+    <span class="n">variety</span> <span class="o">=</span> <span class="n">cells</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">origin</span> <span class="o">=</span> <span class="n">cells</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">edible</span> <span class="o">=</span> <span class="s2">&quot;Edible&quot;</span> <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">cells</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">else</span> <span class="s2">&quot;Inedible&quot;</span>
+
+    <span class="c1"># first attempt at extracting the general family of tree</span>
+    <span class="n">family</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;NN&#39;</span><span class="p">,</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">common_name</span><span class="p">))),</span> <span class="p">[</span><span class="s1">&#39;none&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">data_out</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">common_name</span><span class="p">,</span> <span class="n">latin_name</span><span class="p">,</span> <span class="n">family</span><span class="p">,</span> <span class="n">variety</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">edible</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data_out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;Ailanthus&#39;, &#39;Ailanthus altissima&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Alaska paper birch&#39;, &#39;Betula neoalaskana&#39;, &#39;paper&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Alternate leaf dogwood&#39;, &#39;Cornus alternifolia&#39;, &#39;leaf&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;American beech&#39;, &#39;Fagus grandifolia&#39;, &#39;beech&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;American chestnut&#39;, &#39;Castanea dentata&#39;, &#39;chestnut&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;American elder&#39;, &#39;Sambucus canadensis&#39;, &#39;elder&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;American hazel&#39;, &#39;Corylus americana&#39;, &#39;hazel&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;American holly&#39;, &#39;Ilex opaca&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;American mountain ash&#39;, &#39;Sorbus americana&#39;, &#39;mountain&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;American plum&#39;, &#39;Prunus americana&#39;, &#39;plum&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Amur choke cherry&#39;, &#39;Prunus maackii&#39;, &#39;cherry&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Amur corktree&#39;, &#39;Phellodendron amurense&#39;, &#39;corktree&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Amur maple&#39;, &#39;Acer ginnala&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Arbutus&#39;, &#39;Arbutus menziesii&#39;, &#39;Arbutus&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Atlas cedar&#39;, &#39;Cedrus atlantica&#39;, &#39;cedar&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Austrian pine&#39;, &#39;Pinus nigra&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Bald cypress&#39;, &#39;Taxodium distichum&#39;, &#39;cypress&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Balsam fir&#39;, &#39;Abies balsamea&#39;, &#39;fir&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Balsam poplar&#39;, &#39;Populus balsamifera&#39;, &#39;poplar&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Balsam willow&#39;, &#39;Salix pyrifolia&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Basket willow&#39;, &#39;Salix viminalis&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Basswood&#39;, &#39;Tilia americana&#39;, &#39;Basswood&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Beaked hazel&#39;, &#39;Corylus cornuta&#39;, &#39;hazel&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Bebb willow&#39;, &#39;Salix bebbiana&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&quot;Bebb&#39;s Oak&quot;, &#39;Quercus bebbiana&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Bigleaf maple&#39;, &#39;Acer macrophyllum&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Bitter cherry&#39;, &#39;Prunus emarginata&#39;, &#39;cherry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Bitternut hickory&#39;, &#39;Carya cordiformis&#39;, &#39;hickory&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Black ash&#39;, &#39;Fraxinus nigra&#39;, &#39;ash&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Black cherry&#39;, &#39;Prunus serotina&#39;, &#39;cherry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Black cottonwood&#39;, &#39;Populus trichocarpa&#39;, &#39;cottonwood&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Black hawthorn&#39;, &#39;Crataegus douglasii&#39;, &#39;hawthorn&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Black locust&#39;, &#39;Robinia pseudoacacia&#39;, &#39;locust&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Black maple&#39;, &#39;Acer nigrum&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Black oak&#39;, &#39;Quercus velutina&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Black spruce&#39;, &#39;Picea mariana&#39;, &#39;spruce&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Black walnut&#39;, &#39;Juglans nigra&#39;, &#39;walnut&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Black willow&#39;, &#39;Salix nigra&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Black berry elder&#39;, &#39;Sambucus melanocarpa&#39;, &#39;berry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Black gum&#39;, &#39;Nyssa sylvatica&#39;, &#39;gum&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Blue ash&#39;, &#39;Fraxinus quadrangulata&#39;, &#39;ash&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Blue beech&#39;, &#39;Carpinus caroliniana&#39;, &#39;beech&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Blue berry elder&#39;, &#39;Sambucus cerulea&#39;, &#39;berry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Blueleaf birch&#39;, &#39;Betula xcaerulea&#39;, &#39;birch&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Bristlecone pine&#39;, &#39;Pinus aristata&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Bur oak&#39;, &#39;Quercus macrocarpa&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Burning bush euonymus&#39;, &#39;Euonymus atropurpureus&#39;, &#39;bush&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Butternut&#39;, &#39;Juglans cinerea&#39;, &#39;Butternut&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Button bush&#39;, &#39;Cephalanthus occidentalis&#39;, &#39;bush&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Canada plum&#39;, &#39;Prunus nigra&#39;, &#39;plum&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Canada yew&#39;, &#39;Taxus canadensis&#39;, &#39;yew&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Carolina poplar&#39;, &#39;Populus xcanadensis&#39;, &#39;poplar&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Cascara buckthorn&#39;, &#39;Rhamnus purshiana&#39;, &#39;buckthorn&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Cedar of Lebanon&#39;, &#39;Cedrus libani&#39;, &#39;Cedar&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Cherry birch&#39;, &#39;Betula lenta&#39;, &#39;birch&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Chestnut oak&#39;, &#39;Quercus montana&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Chinese chestnut&#39;, &#39;Castanea mollissima&#39;, &#39;chestnut&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Chinese juniper&#39;, &#39;Juniperus chinensis&#39;, &#39;juniper&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Chinquapin oak&#39;, &#39;Quercus muehlenbergii&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Choke cherry&#39;, &#39;Prunus virginiana var. virginiana&#39;, &#39;cherry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Coast redwood&#39;, &#39;Sequoia sempervirens&#39;, &#39;redwood&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Cockspur hawthorn&#39;, &#39;Crataegus crus-galli&#39;, &#39;hawthorn&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Colorado spruce&#39;, &#39;Picea pungens&#39;, &#39;spruce&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Columbia hawthorn&#39;, &#39;Crataegus columbiana&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Common apple&#39;, &#39;Malus sylvestris&#39;, &#39;apple&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Edible&#39;], [&#39;Common Dogwood&#39;, &#39;Cornus sanguinea&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Common hoptree&#39;, &#39;Ptelea trifoliata&#39;, &#39;hoptree&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Common juniper&#39;, &#39;Juniperus communis&#39;, &#39;juniper&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Common laburnum&#39;, &#39;Laburnum anagyroides&#39;, &#39;laburnum&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Common lilac&#39;, &#39;Syringa vulgaris&#39;, &#39;lilac&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Common prickly ash&#39;, &#39;Zanthoxylum americanum&#39;, &#39;prickly&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Common smoke tree&#39;, &#39;Cotinus coggygria&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Common winterberry&#39;, &#39;Ilex verticillata&#39;, &#39;winterberry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Cornelian cherry&#39;, &#39;Cornus mas&#39;, &#39;cherry&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Crack willow&#39;, &#39;Salix fragilis&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Cranberry viburnum&#39;, &#39;Viburnum trilobum&#39;, &#39;viburnum&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Creeping juniper&#39;, &#39;Juniperus horizontalis&#39;, &#39;juniper&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Cucumber tree&#39;, &#39;Magnolia acuminata&#39;, &#39;tree&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Dahurian larch&#39;, &#39;Larix gmelinii&#39;, &#39;larch&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Dawn redwood&#39;, &#39;Metasequoia glyptostroboides&#39;, &#39;redwood&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Deodar cedar&#39;, &#39;Cedrus deodara&#39;, &#39;cedar&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Dotted hawthorn&#39;, &#39;Crataegus punctata&#39;, &#39;hawthorn&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Douglas maple&#39;, &#39;Acer glabrum var. douglasii&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Douglas fir&#39;, &#39;Pseudotsuga menziesii var. menziesii&#39;, &#39;fir&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Downy hawthorn&#39;, &#39;Crataegus mollis&#39;, &#39;hawthorn&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Downy serviceberry&#39;, &#39;Amelanchier arborea&#39;, &#39;serviceberry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Dwarf chinquapin oak&#39;, &#39;Quercus prinoides&#39;, &#39;chinquapin&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Dwarf hackberry&#39;, &#39;Celtis tenuifolia&#39;, &#39;hackberry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Eastern cottonwood&#39;, &#39;Populus deltoides ssp. deltoides&#39;, &#39;cottonwood&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Eastern flowering dogwood&#39;, &#39;Cornus florida&#39;, &#39;dogwood&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Eastern hemlock&#39;, &#39;Tsuga canadensis&#39;, &#39;hemlock&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Eastern red elderberry&#39;, &#39;Sambucus pubens&#39;, &#39;elderberry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Eastern redcedar&#39;, &#39;Juniperus virginiana&#39;, &#39;redcedar&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Eastern white pine&#39;, &#39;Pinus strobus&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Eastern white cedar&#39;, &#39;Thuja occidentalis&#39;, &#39;cedar&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Engelmann spruce&#39;, &#39;Picea engelmannii&#39;, &#39;spruce&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;English elm&#39;, &#39;Ulmus procera&#39;, &#39;elm&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;English holly&#39;, &#39;Ilex aquifolium&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;English oak&#39;, &#39;Quercus robur&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Edible&#39;], [&#39;English walnut&#39;, &#39;Juglans regia&#39;, &#39;walnut&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;English yew&#39;, &#39;Taxus baccata&#39;, &#39;yew&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;European ash&#39;, &#39;Fraxinus excelsior&#39;, &#39;ash&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;European beech&#39;, &#39;Fagus sylvatica&#39;, &#39;beech&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;European black alder&#39;, &#39;Alnus glutinosa&#39;, &#39;alder&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;European buckthorn&#39;, &#39;Rhamnus cathartica&#39;, &#39;buckthorn&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;European cranberry viburnum&#39;, &#39;Viburnum opulus&#39;, &#39;cranberry&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Edible&#39;], [&#39;European euonymus&#39;, &#39;Euonymus europaeus&#39;, &#39;euonymus&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;European filbert&#39;, &#39;Corylus avellana&#39;, &#39;filbert&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;European larch&#39;, &#39;Larix decidua&#39;, &#39;larch&#39;, &#39;Conifer&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;European mountain ash&#39;, &#39;Sorbus aucuparia&#39;, &#39;mountain&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;European white birch&#39;, &#39;Betula pendula&#39;, &#39;birch&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;European white poplar&#39;, &#39;Populus alba&#39;, &#39;poplar&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Fanleaf hawthorn&#39;, &#39;Crataegus flabellata&#39;, &#39;hawthorn&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Feltleaf willow&#39;, &#39;Salix alaxensis&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Fireberry hawthorn&#39;, &#39;Crataegus chrysocarpa&#39;, &#39;hawthorn&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Fleshy hawthorn&#39;, &#39;Crataegus succulenta&#39;, &#39;hawthorn&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Garry oak&#39;, &#39;Quercus garryana&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Ginkgo&#39;, &#39;Ginkgo biloba&#39;, &#39;Ginkgo&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Glossy buckthorn&#39;, &#39;Rhamnus frangula&#39;, &#39;buckthorn&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Golden Weeping willow&#39;, &#39;Salix alba var. vitellina cv. Pendula&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Golden willow&#39;, &#39;Salix alba var. vitellina&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Goldenchain tree&#39;, &#39;Laburnum x watereri&#39;, &#39;tree&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Grand fir&#39;, &#39;Abies grandis&#39;, &#39;fir&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Gray birch&#39;, &#39;Betula populifolia&#39;, &#39;birch&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Grecian Juniper&#39;, &#39;Juniperus excelsa&#39;, &#39;none&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Green alder&#39;, &#39;Alnus viridis ssp. crispa&#39;, &#39;alder&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Green ash&#39;, &#39;Fraxinus pennsylvanica var. subintegerrima&#39;, &#39;ash&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Hazel alder&#39;, &#39;Alnus serrulata&#39;, &#39;alder&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Heartleaf willow&#39;, &#39;Salix eriocephala&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Himalayan Pine&#39;, &#39;Pinus Wallichiana&#39;, &#39;none&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Hinoki cypress&#39;, &#39;Chamaecyparis obtusa&#39;, &#39;cypress&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Honey locust&#39;, &#39;Gleditsia triacanthos&#39;, &#39;locust&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Hooker willow&#39;, &#39;Salix hookeriana&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Horsechestnut&#39;, &#39;Aesculus hippocastanum&#39;, &#39;Horsechestnut&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Hybrid white willow&#39;, &#39;Salix alba x S. fragilis&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Ironwood&#39;, &#39;Ostrya virginiana&#39;, &#39;Ironwood&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Jack pine&#39;, &#39;Pinus banksiana&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&quot;Jack&#39;s hybrid poplar&quot;, &#39;Populus xjackii&#39;, &#39;poplar&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Japanese angelica tree&#39;, &#39;Aralia elata&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Japanese Dogwood&#39;, &#39;Cornus officinalis&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Japanese flowering cherry&#39;, &#39;Prunus serrulata&#39;, &#39;flowering&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Japanese larch&#39;, &#39;Larix kaempferi&#39;, &#39;larch&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Japanese maple&#39;, &#39;Acer palmatum&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Japanese Walnut&#39;, &#39;Juglans ailantifolia&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Japanese yew&#39;, &#39;Taxus cuspidata&#39;, &#39;yew&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Japanese zelkova&#39;, &#39;Zelkova serrata&#39;, &#39;zelkova&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Japanese cedar&#39;, &#39;Cryptomeria japonica&#39;, &#39;cedar&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Katsura tree&#39;, &#39;Cercidiphyllum japonicum&#39;, &#39;tree&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Kenai birch&#39;, &#39;Betula kenaica&#39;, &#39;birch&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Kentucky coffeetree&#39;, &#39;Gymnocladus dioicus&#39;, &#39;coffeetree&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Kousa dogwood&#39;, &#39;Cornus kousa&#39;, &#39;dogwood&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Lanceleaf cottonwood&#39;, &#39;Populus x acuminata&#39;, &#39;cottonwood&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Largetooth aspen&#39;, &#39;Populus grandidentata&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Laurel willow&#39;, &#39;Salix pentandra&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Lawson cypress&#39;, &#39;Chamaecyparis lawsoniana&#39;, &#39;cypress&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Limber pine&#39;, &#39;Pinus flexilis&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Little leaf linden&#39;, &#39;Tilia cordata&#39;, &#39;linden&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Littletree willow&#39;, &#39;Salix arbusculoides&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Lodgepole pine&#39;, &#39;Pinus contorta var. latifolia&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Lombardy poplar&#39;, &#39;Populus nigra cv. Italica&#39;, &#39;poplar&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;London plane tree&#39;, &#39;Platanus x acerifolia&#39;, &#39;plane&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Mackenzie willow&#39;, &#39;Salix prolixa&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Manitoba maple&#39;, &#39;Acer negundo&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Meadow willow&#39;, &#39;Salix petiolaris&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Monkey puzzle&#39;, &#39;Araucaria araucana&#39;, &#39;puzzle&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Monterey Pine&#39;, &#39;Pinus radiata&#39;, &#39;none&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Mountain alder&#39;, &#39;Alnus incana ssp. tenuifolia&#39;, &#39;Mountain&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Mountain hemlock&#39;, &#39;Tsuga mertensiana&#39;, &#39;Mountain&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Mountain maple&#39;, &#39;Acer spicatum&#39;, &#39;Mountain&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Mountain paper birch&#39;, &#39;Betula cordifolia&#39;, &#39;paper&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Mountain serviceberry&#39;, &#39;Amelanchier bartramiana&#39;, &#39;Mountain&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Mountain holly&#39;, &#39;Nemopanthus mucronatus&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Mugho pine&#39;, &#39;Pinus mugo&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Narrowleaf cottonwood&#39;, &#39;Populus angustifolia&#39;, &#39;cottonwood&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Noble fir&#39;, &#39;Abies procera&#39;, &#39;fir&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Nordmann fir&#39;, &#39;Abies nordmanniana&#39;, &#39;fir&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Northern catalpa&#39;, &#39;Catalpa speciosa&#39;, &#39;catalpa&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Northern hackberry&#39;, &#39;Celtis occidentalis&#39;, &#39;hackberry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Northern pin oak&#39;, &#39;Quercus ellipsoidalis&#39;, &#39;pin&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Northern red ash&#39;, &#39;Fraxinus pennsylvanica var. austini&#39;, &#39;ash&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Norway maple&#39;, &#39;Acer platanoides&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Norway spruce&#39;, &#39;Picea abies&#39;, &#39;spruce&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Ohio buckeye&#39;, &#39;Aesculus glabra&#39;, &#39;buckeye&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;One seeded hawthorn&#39;, &#39;Crataegus monogyna&#39;, &#39;hawthorn&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Edible&#39;], [&#39;Oregon ash&#39;, &#39;Fraxinus latifolia&#39;, &#39;ash&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Oriental cedar&#39;, &#39;Thuja orientalis&#39;, &#39;cedar&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Osage orange&#39;, &#39;Maclura pomifera&#39;, &#39;Osage&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Pacific bayberry&#39;, &#39;Myrica californica&#39;, &#39;bayberry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Pacific crab apple&#39;, &#39;Malus fusca&#39;, &#39;crab&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Pacific rhododendron&#39;, &#39;Rhododendron macrophyllum&#39;, &#39;rhododendron&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Pacific serviceberry&#39;, &#39;Amelanchier florida&#39;, &#39;serviceberry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Pacific willow&#39;, &#39;Salix lucida ssp. Lasiandra&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Pawpaw&#39;, &#39;Asimina triloba&#39;, &#39;Pawpaw&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Peachleaf willow&#39;, &#39;Salix amygdaloides&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Pear hawthorn&#39;, &#39;Crataegus calpodendron&#39;, &#39;hawthorn&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Pin cherry&#39;, &#39;Prunus pensylvanica&#39;, &#39;cherry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Pin oak&#39;, &#39;Quercus palustris&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Pitch pine&#39;, &#39;Pinus rigida&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Plains cottonwood&#39;, &#39;Populus deltoides ssp. monilifera&#39;, &#39;cottonwood&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Poison ivy&#39;, &#39;Toxicodendron radicans&#39;, &#39;ivy&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Poison oak&#39;, &#39;Toxicodendron diversiloba&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Poison sumac&#39;, &#39;Toxicodendron vernix&#39;, &#39;sumac&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Ponderosa pine&#39;, &#39;Pinus ponderosa&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Pumpkin ash&#39;, &#39;Fraxinus profunda&#39;, &#39;ash&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Purple osier willow&#39;, &#39;Salix purpurea&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Pussy willow&#39;, &#39;Salix discolor&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Red alder&#39;, &#39;Alnus rubra&#39;, &#39;alder&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Red ash&#39;, &#39;Fraxinus pennsylvanica&#39;, &#39;ash&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Red fir&#39;, &#39;Abies magnifica&#39;, &#39;fir&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Red hickory&#39;, &#39;Carya glabra var. odorata&#39;, &#39;hickory&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Red horsechestnut&#39;, &#39;Aesculus x carnea&#39;, &#39;horsechestnut&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Red maple&#39;, &#39;Acer rubrum&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Red mulberry&#39;, &#39;Morus rubra&#39;, &#39;mulberry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Red oak&#39;, &#39;Quercus rubra&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Red pine&#39;, &#39;Pinus resinosa&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Red spruce&#39;, &#39;Picea rubens&#39;, &#39;spruce&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Red Coast Elder&#39;, &#39;Sambucus callicarpa&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Redbud&#39;, &#39;Cercis canadensis&#39;, &#39;Redbud&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Rock elm&#39;, &#39;Ulmus thomasii&#39;, &#39;elm&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Rocky Mountain Douglas fir&#39;, &#39;Pseudotsuga menziesii var. glauca&#39;, &#39;fir&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Rocky Mountain juniper&#39;, &#39;Juniperus scopulorum&#39;, &#39;juniper&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Rosebay rhododendron&#39;, &#39;Rhododendron maximum&#39;, &#39;rhododendron&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Roundleaf serviceberry&#39;, &#39;Amelanchier sanguinea&#39;, &#39;serviceberry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Royalty Crab Apple&#39;, &quot;Malus &#39;Royalty&#39;&quot;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Russian olive&#39;, &#39;Elaeagnus angustifolia&#39;, &#39;olive&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Sandbar willow&#39;, &#39;Salix exigua&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Saskatoon&#39;, &#39;Amelanchier alnifolia&#39;, &#39;Saskatoon&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Sassafras&#39;, &#39;Sassafras albidum&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Satiny willow&#39;, &#39;Salix pellita&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Saucer magnolia&#39;, &#39;Magnolia x soulangiana&#39;, &#39;magnolia&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Savin juniper&#39;, &#39;Juniperus sabina&#39;, &#39;juniper&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Sawara cypress&#39;, &#39;Chamaecyparis pisifera&#39;, &#39;cypress&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Scarlet hawthorn&#39;, &#39;Crataegus coccinea&#39;, &#39;hawthorn&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Scarlet oak&#39;, &#39;Quercus coccinea&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Scotch elm&#39;, &#39;Ulmus glabra&#39;, &#39;elm&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Scots pine&#39;, &#39;Pinus sylvestris&#39;, &#39;none&#39;, &#39;Conifer&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Scouler willow&#39;, &#39;Salix scouleriana&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Sea buckthorn&#39;, &#39;Hippophae rhamnoides&#39;, &#39;buckthorn&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Serbian spruce&#39;, &#39;Picea omorika&#39;, &#39;spruce&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Shagbark hickory&#39;, &#39;Carya ovata&#39;, &#39;hickory&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Shellbark hickory&#39;, &#39;Carya laciniosa&#39;, &#39;hickory&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Shining sumac&#39;, &#39;Rhus copallina&#39;, &#39;sumac&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Shining willow&#39;, &#39;Salix lucida ssp. lucida&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Shore pine&#39;, &#39;Pinus contorta var. contorta&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Showy mountain ash&#39;, &#39;Sorbus decora&#39;, &#39;mountain&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Shumard oak&#39;, &#39;Quercus shumardii&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Siberian alder&#39;, &#39;Alnus viridis ssp. fruticosa&#39;, &#39;alder&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Siberian crab apple&#39;, &#39;Malus baccata&#39;, &#39;crab&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Siberian elm&#39;, &#39;Ulmus pumila&#39;, &#39;elm&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Siberian larch&#39;, &#39;Larix sibirica&#39;, &#39;larch&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Siberian pea tree&#39;, &#39;Caragana arborescens&#39;, &#39;pea&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Sierra redwood&#39;, &#39;Sequoiadendron giganteum&#39;, &#39;redwood&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Silver buffalo berry&#39;, &#39;Shepherdia argentea&#39;, &#39;buffalo&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Silver maple&#39;, &#39;Acer saccharinum&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Silverberry&#39;, &#39;Elaeagnus commutata&#39;, &#39;Silverberry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Simon poplar&#39;, &#39;Populus simonii&#39;, &#39;poplar&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Sitka alder&#39;, &#39;Alnus viridis ssp. sinuata&#39;, &#39;alder&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Sitka mountain ash&#39;, &#39;Sorbus sitchensis&#39;, &#39;mountain&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Sitka spruce&#39;, &#39;Picea sitchensis&#39;, &#39;spruce&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Sitka willow&#39;, &#39;Salix sitchensis&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Slippery elm&#39;, &#39;Ulmus rubra&#39;, &#39;elm&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Smooth serviceberry&#39;, &#39;Amelanchier laevis&#39;, &#39;serviceberry&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Smooth sumac&#39;, &#39;Rhus glabra&#39;, &#39;sumac&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Sour cherry&#39;, &#39;Prunus cerasus&#39;, &#39;cherry&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Edible&#39;], [&#39;Southern catalpa&#39;, &#39;Catalpa bignonioides&#39;, &#39;catalpa&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Spanish fir&#39;, &#39;Abies pinsapo&#39;, &#39;fir&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Speckled alder&#39;, &#39;Alnus incana ssp. rugosa&#39;, &#39;alder&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Squashberry viburnum&#39;, &#39;Viburnum edule&#39;, &#39;viburnum&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Staghorn sumac&#39;, &#39;Rhus typhina&#39;, &#39;sumac&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Striped maple&#39;, &#39;Acer pensylvanicum&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Subalpine fir&#39;, &#39;Abies lasiocarpa&#39;, &#39;fir&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Subalpine larch&#39;, &#39;Larix lyallii&#39;, &#39;larch&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Sugar maple&#39;, &#39;Acer saccharum&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Swamp white oak&#39;, &#39;Quercus bicolor&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Sweet cherry&#39;, &#39;Prunus avium&#39;, &#39;cherry&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Edible&#39;], [&#39;Sweet viburnum&#39;, &#39;Viburnum lentago&#39;, &#39;viburnum&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Sweetgum&#39;, &#39;Liquidambar styraciflua&#39;, &#39;Sweetgum&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Sycamore&#39;, &#39;Platanus occidentalis&#39;, &#39;Sycamore&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Sycamore maple&#39;, &#39;Acer pseudoplatanus&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Tamarack&#39;, &#39;Larix laricina&#39;, &#39;Tamarack&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Trembling aspen&#39;, &#39;Populus tremuloides&#39;, &#39;aspen&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Tulip tree&#39;, &#39;Liriodendron tulipifera&#39;, &#39;tree&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Turkish hazel&#39;, &#39;Corylus colurna&#39;, &#39;hazel&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Umbrella pine&#39;, &#39;Sciadopitys verticillata&#39;, &#39;Umbrella&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Vine maple&#39;, &#39;Acer circinatum&#39;, &#39;maple&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Violet willow&#39;, &#39;Salix daphnoides&#39;, &#39;willow&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Washington hawthorn&#39;, &#39;Crataegus phaenopyrum&#39;, &#39;hawthorn&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Edible&#39;], [&#39;Water birch&#39;, &#39;Betula occidentalis&#39;, &#39;birch&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Wayfaring viburnum&#39;, &#39;Viburnum lantana&#39;, &#39;viburnum&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Western choke cherry&#39;, &#39;Prunus virginiana var. demissa&#39;, &#39;choke&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Western flowering dogwood&#39;, &#39;Cornus nuttallii&#39;, &#39;dogwood&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Western hemlock&#39;, &#39;Tsuga heterophylla&#39;, &#39;hemlock&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Western larch&#39;, &#39;Larix occidentalis&#39;, &#39;larch&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Western redcedar&#39;, &#39;Thuja plicata&#39;, &#39;redcedar&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Western white pine&#39;, &#39;Pinus monticola&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Western yew&#39;, &#39;Taxus brevifolia&#39;, &#39;yew&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;White ash&#39;, &#39;Fraxinus americana&#39;, &#39;ash&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;White birch&#39;, &#39;Betula papyrifera&#39;, &#39;birch&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;White elm&#39;, &#39;Ulmus americana&#39;, &#39;elm&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;White fir&#39;, &#39;Abies concolor&#39;, &#39;fir&#39;, &#39;Conifer&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;White linden&#39;, &#39;Tilia tomentosa&#39;, &#39;linden&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;White mulberry&#39;, &#39;Morus alba&#39;, &#39;mulberry&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;White oak&#39;, &#39;Quercus alba&#39;, &#39;oak&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;White spruce&#39;, &#39;Picea glauca&#39;, &#39;spruce&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Whitebark pine&#39;, &#39;Pinus albicaulis&#39;, &#39;pine&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Wild crab apple&#39;, &#39;Malus coronaria&#39;, &#39;crab&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Edible&#39;], [&#39;Winged euonymus&#39;, &#39;Euonymus alatus&#39;, &#39;euonymus&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Winter creeper euonymus&#39;, &#39;Euonymus fortunei&#39;, &#39;creeper&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Winterberry Euonymus&#39;, &#39;Euonymus bungeanus&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;], [&#39;Witch hazel&#39;, &#39;Hamamelis virginiana&#39;, &#39;hazel&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Yellow birch&#39;, &#39;Betula alleghaniensis&#39;, &#39;birch&#39;, &#39;Deciduous&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Yellow cedar&#39;, &#39;Chamaecyparis nootkatensis&#39;, &#39;cedar&#39;, &#39;Conifer&#39;, &#39;Native&#39;, &#39;Inedible&#39;], [&#39;Yellow Twig Dogwood&#39;, &#39;Cornus sericea&#39;, &#39;none&#39;, &#39;Deciduous&#39;, &#39;Naturalized&#39;, &#39;Inedible&#39;], [&#39;Yellow wood&#39;, &#39;Cladrastis lutea&#39;, &#39;wood&#39;, &#39;Deciduous&#39;, &#39;Introduced&#39;, &#39;Inedible&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HEADERS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;species&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;latin_species&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;family&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;variety&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;origin_canada&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;edible&quot;</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/species-data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">HEADERS</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data_out</span><span class="p">:</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">species</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/species-data.csv&quot;</span><span class="p">)</span>
+<span class="n">species</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>latin_species</th>
+      <th>family</th>
+      <th>variety</th>
+      <th>origin_canada</th>
+      <th>edible</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ailanthus</td>
+      <td>Ailanthus altissima</td>
+      <td>none</td>
+      <td>Deciduous</td>
+      <td>Naturalized</td>
+      <td>Inedible</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alaska paper birch</td>
+      <td>Betula neoalaskana</td>
+      <td>paper</td>
+      <td>Deciduous</td>
+      <td>Native</td>
+      <td>Inedible</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alternate leaf dogwood</td>
+      <td>Cornus alternifolia</td>
+      <td>leaf</td>
+      <td>Deciduous</td>
+      <td>Native</td>
+      <td>Inedible</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>American beech</td>
+      <td>Fagus grandifolia</td>
+      <td>beech</td>
+      <td>Deciduous</td>
+      <td>Native</td>
+      <td>Inedible</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>American chestnut</td>
+      <td>Castanea dentata</td>
+      <td>chestnut</td>
+      <td>Deciduous</td>
+      <td>Native</td>
+      <td>Edible</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>309</th>
+      <td>Witch hazel</td>
+      <td>Hamamelis virginiana</td>
+      <td>hazel</td>
+      <td>Deciduous</td>
+      <td>Native</td>
+      <td>Inedible</td>
+    </tr>
+    <tr>
+      <th>310</th>
+      <td>Yellow birch</td>
+      <td>Betula alleghaniensis</td>
+      <td>birch</td>
+      <td>Deciduous</td>
+      <td>Native</td>
+      <td>Inedible</td>
+    </tr>
+    <tr>
+      <th>311</th>
+      <td>Yellow cedar</td>
+      <td>Chamaecyparis nootkatensis</td>
+      <td>cedar</td>
+      <td>Conifer</td>
+      <td>Native</td>
+      <td>Inedible</td>
+    </tr>
+    <tr>
+      <th>312</th>
+      <td>Yellow Twig Dogwood</td>
+      <td>Cornus sericea</td>
+      <td>none</td>
+      <td>Deciduous</td>
+      <td>Naturalized</td>
+      <td>Inedible</td>
+    </tr>
+    <tr>
+      <th>313</th>
+      <td>Yellow wood</td>
+      <td>Cladrastis lutea</td>
+      <td>wood</td>
+      <td>Deciduous</td>
+      <td>Introduced</td>
+      <td>Inedible</td>
+    </tr>
+  </tbody>
+</table>
+<p>314 rows × 6 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">species</span><span class="p">[</span><span class="s2">&quot;family&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;none&#39;, &#39;paper&#39;, &#39;leaf&#39;, &#39;beech&#39;, &#39;chestnut&#39;, &#39;elder&#39;, &#39;hazel&#39;,
+       &#39;mountain&#39;, &#39;plum&#39;, &#39;cherry&#39;, &#39;corktree&#39;, &#39;maple&#39;, &#39;Arbutus&#39;,
+       &#39;cedar&#39;, &#39;pine&#39;, &#39;cypress&#39;, &#39;fir&#39;, &#39;poplar&#39;, &#39;willow&#39;, &#39;Basswood&#39;,
+       &#39;hickory&#39;, &#39;ash&#39;, &#39;cottonwood&#39;, &#39;hawthorn&#39;, &#39;locust&#39;, &#39;oak&#39;,
+       &#39;spruce&#39;, &#39;walnut&#39;, &#39;berry&#39;, &#39;gum&#39;, &#39;birch&#39;, &#39;bush&#39;, &#39;Butternut&#39;,
+       &#39;yew&#39;, &#39;buckthorn&#39;, &#39;Cedar&#39;, &#39;juniper&#39;, &#39;redwood&#39;, &#39;apple&#39;,
+       &#39;hoptree&#39;, &#39;laburnum&#39;, &#39;lilac&#39;, &#39;prickly&#39;, &#39;winterberry&#39;,
+       &#39;viburnum&#39;, &#39;tree&#39;, &#39;larch&#39;, &#39;serviceberry&#39;, &#39;chinquapin&#39;,
+       &#39;hackberry&#39;, &#39;dogwood&#39;, &#39;hemlock&#39;, &#39;elderberry&#39;, &#39;redcedar&#39;, &#39;elm&#39;,
+       &#39;alder&#39;, &#39;cranberry&#39;, &#39;euonymus&#39;, &#39;filbert&#39;, &#39;Ginkgo&#39;,
+       &#39;Horsechestnut&#39;, &#39;Ironwood&#39;, &#39;flowering&#39;, &#39;zelkova&#39;, &#39;coffeetree&#39;,
+       &#39;linden&#39;, &#39;plane&#39;, &#39;puzzle&#39;, &#39;Mountain&#39;, &#39;catalpa&#39;, &#39;pin&#39;,
+       &#39;buckeye&#39;, &#39;Osage&#39;, &#39;bayberry&#39;, &#39;crab&#39;, &#39;rhododendron&#39;, &#39;Pawpaw&#39;,
+       &#39;ivy&#39;, &#39;sumac&#39;, &#39;horsechestnut&#39;, &#39;mulberry&#39;, &#39;Redbud&#39;, &#39;olive&#39;,
+       &#39;Saskatoon&#39;, &#39;magnolia&#39;, &#39;pea&#39;, &#39;buffalo&#39;, &#39;Silverberry&#39;,
+       &#39;Sweetgum&#39;, &#39;Sycamore&#39;, &#39;Tamarack&#39;, &#39;aspen&#39;, &#39;Umbrella&#39;, &#39;choke&#39;,
+       &#39;creeper&#39;, &#39;wood&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ottawa-trees"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Alexandre Ouellette -  Data Projects</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tree-stats.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Basic Tree Stats</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-description">Project Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources">Sources</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alexandre Ouellette
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
