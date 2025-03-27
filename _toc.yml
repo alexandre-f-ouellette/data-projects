@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Ottawa Tree Statistics
+    chapters:
+      - file: ottawa-trees/species-data
+      - file: ottawa-trees/tree-stats
+  - caption: Ndoku Exploration
+    chapters:
+      - file: ndoku-julia/n2doku_adj_mtx
