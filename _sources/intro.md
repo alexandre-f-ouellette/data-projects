@@ -1,10 +1,9 @@
-# Ottawa Tree Statistics
+# NDOKU Exploration
 
-This book serves as a Data Analysis project to practice various techniques and showcase them. 
+In this project, I will be exploring various counting problems related to the number of ndoku boards exist. 
+These are the various sizes of the popular Sudoku game. 
 
-I will be updating and expanding on this project as time permits and as I learn new techniques. 
-
-Hope you all enjoy it and thanks for taking a look!
+Thanks for taking a look!
 
 ```{tableofcontents}
 ```
