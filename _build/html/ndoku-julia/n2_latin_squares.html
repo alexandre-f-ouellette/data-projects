@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>N2-Doku Adjacency Matrix &#8212; Data Projects</title>
+    <title>N = 2 - Latin Squares &#8212; Data Projects</title>
   
   
   
@@ -57,11 +57,10 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ndoku-julia/n2doku_adj_mtx';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ndoku-julia/n2_latin_squares';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="N = 2 - Latin Squares" href="n2_latin_squares.html" />
-    <link rel="prev" title="Basic Tree Stats" href="../ottawa-trees/tree-stats.html" />
+    <link rel="prev" title="N2-Doku Adjacency Matrix" href="n2doku_adj_mtx.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,8 +179,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ndoku Exploration</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">N2-Doku Adjacency Matrix</a></li>
-<li class="toctree-l1"><a class="reference internal" href="n2_latin_squares.html">N = 2 - Latin Squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="n2doku_adj_mtx.html">N2-Doku Adjacency Matrix</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">N = 2 - Latin Squares</a></li>
 </ul>
 
     </div>
@@ -253,7 +252,7 @@
       
       
       
-      <li><a href="https://github.com/alexandre-f-ouellette/data-projects/issues/new?title=Issue%20on%20page%20%2Fndoku-julia/n2doku_adj_mtx.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/alexandre-f-ouellette/data-projects/issues/new?title=Issue%20on%20page%20%2Fndoku-julia/n2_latin_squares.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -283,7 +282,7 @@
       
       
       
-      <li><a href="../_sources/ndoku-julia/n2doku_adj_mtx.ipynb" target="_blank"
+      <li><a href="../_sources/ndoku-julia/n2_latin_squares.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -354,9 +353,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -367,20 +364,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>N2-Doku Adjacency Matrix</h1>
+    <h1>N = 2 - Latin Squares</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutations-of-size-n-2">Permutations of size N^2</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -390,11 +378,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="n2-doku-adjacency-matrix">
-<h1>N2-Doku Adjacency Matrix<a class="headerlink" href="#n2-doku-adjacency-matrix" title="Link to this heading">#</a></h1>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
-<p>This book will serve as a place to generate and explore the adjacency matrix of permutations related to the 4x4 Shidoku puzzles.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="n-2-latin-squares">
+<h1>N = 2 - Latin Squares<a class="headerlink" href="#n-2-latin-squares" title="Link to this heading">#</a></h1>
 <div class="cell tag_hide-input tag_hide-output docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -426,38 +411,14 @@ document.write(`
 </div>
 </details>
 </div>
-</section>
-<section id="permutations-of-size-n-2">
-<h2>Permutations of size N^2<a class="headerlink" href="#permutations-of-size-n-2" title="Link to this heading">#</a></h2>
-<p>Every valid Ndoku board will be filled with numbers from 1 to 4, each of which appearing exactly once in each row, column and block.</p>
-<p>If we remove the block condition, we call such arrays Latin Squares.
-Ndokus are a subset of the Latin Squares with the block condition added.</p>
-<p>Any one of the digits being entered into the board in valid positions can be described by a single permutation of size 4.
-A given permutation <code class="docutils literal notranslate"><span class="pre">[1,2,3,4]</span></code> will map the digit into the <code class="docutils literal notranslate"><span class="pre">i</span></code>th row in the position of the perm’s <code class="docutils literal notranslate"><span class="pre">i</span></code>th entry.</p>
-<p>For a Latin Square to be created, 4 permutations are needed, all of which are disjoint from one another.
-This can be represented as a graph, whose adjacency matrix maps the disjoint relationship between permutations.
-The Latin Squares are then the maximal cliques of this graph.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">disjoint</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">v2</span><span class="p">)</span>
-<span class="w">    </span><span class="n">iszero</span><span class="p">(</span><span class="n">v1</span><span class="w"> </span><span class="o">.==</span><span class="w"> </span><span class="n">v2</span><span class="p">)</span>
-<span class="k">end</span><span class="p">;</span>
-
-<span class="k">const</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
 <span class="k">const</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">2</span>
-
-<span class="k">const</span><span class="w"> </span><span class="n">NDOKU_PERMS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collect</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">4</span><span class="p">))</span>
-
-<span class="n">disjoint_adj_mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">disjoint</span><span class="p">(</span><span class="n">p</span><span class="o">...</span><span class="p">),</span><span class="w"> </span><span class="n">Iterators</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">NDOKU_PERMS</span><span class="p">,</span><span class="w"> </span><span class="n">NDOKU_PERMS</span><span class="p">))</span>
+<span class="n">n2_adj_mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">load</span><span class="p">(</span><span class="s">&quot;data/n2_data.jld2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;adj_mtx&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24×24 Matrix{Bool}:
  0  0  0  0  0  0  0  1  0  1  1  0  0  1  0  0  1  1  1  0  0  0  1  1
@@ -490,17 +451,68 @@ The Latin Squares are then the maximal cliques of this graph.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">save</span><span class="p">(</span><span class="s">&quot;data/n2_data.jld2&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="kt">Dict</span><span class="p">(</span>
-<span class="w">        </span><span class="s">&quot;adj_mtx&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">disjoint_adj_mtx</span><span class="p">,</span>
-<span class="w">        </span><span class="s">&quot;perms&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">NDOKU_PERMS</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">are_disjoint</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">col_id</span><span class="p">,</span><span class="w"> </span><span class="n">row_id</span><span class="p">)</span>
+<span class="w">    </span><span class="n">adj_mtx</span><span class="p">[</span><span class="n">col_id</span><span class="p">,</span><span class="w"> </span><span class="n">row_id</span><span class="p">]</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">is_latin_square</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">subset</span><span class="p">)</span>
+<span class="w">    </span><span class="n">vect_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binomial</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="n">check_vect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">comb</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">are_disjoint</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">comb</span><span class="o">...</span><span class="p">),</span><span class="w"> </span><span class="n">combinations</span><span class="p">(</span><span class="n">subset</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
+<span class="w">    </span><span class="n">check_vect</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ones</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span><span class="w"> </span><span class="n">vect_size</span><span class="p">)</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">find_latin_squares</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">)</span>
+<span class="w">    </span><span class="n">subsets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">combinations</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">first</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">)),</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<span class="w">    </span><span class="n">filt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">is_latin_square</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">subsets</span><span class="p">)</span>
+<span class="w">    </span><span class="n">collect</span><span class="p">(</span><span class="n">subsets</span><span class="p">)[</span><span class="n">filt</span><span class="p">]</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="n">latin_square_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_latin_squares</span><span class="p">(</span><span class="n">n2_adj_mtx</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24-element Vector{Vector{Int64}}:
+ [1, 8, 17, 24]
+ [1, 8, 18, 23]
+ [1, 10, 17, 19]
+ [1, 11, 14, 24]
+ [2, 7, 17, 24]
+ [2, 7, 18, 23]
+ [2, 9, 18, 20]
+ [2, 12, 13, 23]
+ [3, 8, 17, 22]
+ [3, 11, 14, 22]
+ [3, 11, 16, 20]
+ [3, 12, 14, 21]
+ [4, 7, 18, 21]
+ [4, 11, 13, 22]
+ [4, 12, 13, 21]
+ [4, 12, 15, 19]
+ [5, 7, 16, 23]
+ [5, 9, 14, 22]
+ [5, 9, 16, 20]
+ [5, 10, 15, 20]
+ [6, 8, 15, 24]
+ [6, 9, 16, 19]
+ [6, 10, 13, 21]
+ [6, 10, 15, 19]
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">latin_square_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">latin_square_ids</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>576
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -534,22 +546,13 @@ The Latin Squares are then the maximal cliques of this graph.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../ottawa-trees/tree-stats.html"
+       href="n2doku_adj_mtx.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Basic Tree Stats</p>
+        <p class="prev-next-title">N2-Doku Adjacency Matrix</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="n2_latin_squares.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">N = 2 - Latin Squares</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -557,22 +560,6 @@ The Latin Squares are then the maximal cliques of this graph.</p>
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutations-of-size-n-2">Permutations of size N^2</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

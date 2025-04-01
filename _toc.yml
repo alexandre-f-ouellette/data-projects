@@ -11,3 +11,4 @@ parts:
   - caption: Ndoku Exploration
     chapters:
       - file: ndoku-julia/n2doku_adj_mtx
+      - file: ndoku-julia/n2_latin_squares
