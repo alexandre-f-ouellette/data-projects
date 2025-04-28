@@ -490,9 +490,46 @@ The Latin Squares are then the maximal cliques of this graph.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">distance_adj_mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="o">.==</span><span class="p">(</span><span class="n">p</span><span class="o">...</span><span class="p">)),</span><span class="w"> </span><span class="n">Iterators</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">NDOKU_PERMS</span><span class="p">,</span><span class="w"> </span><span class="n">NDOKU_PERMS</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24×24 Matrix{Int64}:
+ 4  2  2  1  1  2  2  0  1  0  0  1  1  0  2  1  0  0  0  1  1  2  0  0
+ 2  4  1  2  2  1  0  2  0  1  1  0  0  1  1  2  0  0  1  0  2  1  0  0
+ 2  1  4  2  2  1  1  0  2  1  0  0  2  0  1  0  0  1  1  0  0  0  1  2
+ 1  2  2  4  1  2  0  1  1  2  0  0  0  2  0  1  1  0  0  1  0  0  2  1
+ 1  2  2  1  4  2  0  1  0  0  2  1  1  0  0  0  1  2  2  0  1  0  0  1
+ 2  1  1  2  2  4  1  0  0  0  1  2  0  1  0  0  2  1  0  2  0  1  1  0
+ 2  0  1  0  0  1  4  2  2  1  1  2  2  1  1  0  0  0  1  2  0  1  0  0
+ 0  2  0  1  1  0  2  4  1  2  2  1  1  2  0  1  0  0  2  1  1  0  0  0
+ 1  0  2  1  0  0  2  1  4  2  2  1  1  0  2  0  1  0  0  0  1  0  2  1
+ 0  1  1  2  0  0  1  2  2  4  1  2  0  1  0  2  0  1  0  0  0  1  1  2
+ 0  1  0  0  2  1  1  2  2  1  4  2  0  0  1  0  2  1  1  0  2  0  1  0
+ 1  0  0  0  1  2  2  1  1  2  2  4  0  0  0  1  1  2  0  1  0  2  0  1
+ 1  0  2  0  1  0  2  1  1  0  0  0  4  2  2  1  1  2  2  1  0  0  0  1
+ 0  1  0  2  0  1  1  2  0  1  0  0  2  4  1  2  2  1  1  2  0  0  1  0
+ 2  1  1  0  0  0  1  0  2  0  1  0  2  1  4  2  2  1  0  0  2  1  1  0
+ 1  2  0  1  0  0  0  1  0  2  0  1  1  2  2  4  1  2  0  0  1  2  0  1
+ 0  0  0  1  1  2  0  0  1  0  2  1  1  2  2  1  4  2  0  1  1  0  2  0
+ 0  0  1  0  2  1  0  0  0  1  1  2  2  1  1  2  2  4  1  0  0  1  0  2
+ 0  1  1  0  2  0  1  2  0  0  1  0  2  1  0  0  0  1  4  2  2  1  1  2
+ 1  0  0  1  0  2  2  1  0  0  0  1  1  2  0  0  1  0  2  4  1  2  2  1
+ 1  2  0  0  1  0  0  1  1  0  2  0  0  0  2  1  1  0  2  1  4  2  2  1
+ 2  1  0  0  0  1  1  0  0  1  0  2  0  0  1  2  0  1  1  2  2  4  1  2
+ 0  0  1  2  0  1  0  0  2  1  1  0  0  1  1  0  2  0  1  2  2  1  4  2
+ 0  0  2  1  1  0  0  0  1  2  0  1  1  0  0  1  0  2  2  1  1  2  2  4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">save</span><span class="p">(</span><span class="s">&quot;data/n2_data.jld2&quot;</span><span class="p">,</span><span class="w"> </span>
 <span class="w">    </span><span class="kt">Dict</span><span class="p">(</span>
 <span class="w">        </span><span class="s">&quot;adj_mtx&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">disjoint_adj_mtx</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;dist_mtx&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">distance_adj_mtx</span><span class="p">,</span>
 <span class="w">        </span><span class="s">&quot;perms&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">NDOKU_PERMS</span>
 <span class="w">    </span><span class="p">)</span>
 <span class="p">)</span>

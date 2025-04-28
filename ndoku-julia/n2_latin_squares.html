@@ -380,32 +380,20 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="n-2-latin-squares">
 <h1>N = 2 - Latin Squares<a class="headerlink" href="#n-2-latin-squares" title="Link to this heading">#</a></h1>
-<div class="cell tag_hide-input tag_hide-output docutils container">
+<div class="cell tag_hide-input tag_remove-output docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
 <span class="expanded">Hide code cell source</span>
 </summary>
-<div class="cell_input above-output-prompt docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="n">Pkg</span><span class="p">;</span>
 <span class="n">Pkg</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s">&quot;ndoku-julia/&quot;</span><span class="p">)</span>
 
 <span class="k">using</span><span class="w"> </span><span class="n">Combinatorics</span>
+<span class="k">using</span><span class="w"> </span><span class="n">DataStructures</span>
 <span class="k">using</span><span class="w"> </span><span class="n">JLD2</span>
-</pre></div>
-</div>
-</div>
-</details>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">  Activating</span> 
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>project at `/mnt/raid/dev/data-projects/ndoku-julia/ndoku-julia`
+<span class="k">using</span><span class="w"> </span><span class="n">Oscar</span>
 </pre></div>
 </div>
 </div>
@@ -415,7 +403,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
 <span class="k">const</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">2</span>
-<span class="n">n2_adj_mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">load</span><span class="p">(</span><span class="s">&quot;data/n2_data.jld2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;adj_mtx&quot;</span><span class="p">)</span>
+<span class="n">n2_adj_mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JLD2</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;data/n2_data.jld2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;adj_mtx&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -431,11 +419,7 @@ document.write(`
  1  0  1  0  0  1  0  0  0  0  0  0  0  0  1  0  1  1  0  0  0  1  1  1
  0  1  0  0  1  1  0  0  0  0  0  0  0  1  0  1  0  1  1  1  0  1  0  0
  1  0  0  0  1  1  0  0  0  0  0  0  1  0  1  0  1  0  1  1  1  0  0  0
- 1  0  1  1  0  0  0  0  0  0  0  0  1  1  0  1  0  0  0  1  0  1  0  1
- 0  1  1  1  0  0  0  0  0  0  0  0  1  1  1  0  0  0  1  0  1  0  1  0
- 0  1  0  1  0  1  0  0  0  1  1  1  0  0  0  0  0  0  0  0  1  1  1  0
- 1  0  1  0  1  0  0  0  1  0  1  1  0  0  0  0  0  0  0  0  1  1  0  1
- 0  0  0  1  1  1  0  1  0  1  0  1  0  0  0  0  0  0  1  1  0  0  0  1
+ ⋮              ⋮              ⋮              ⋮              ⋮        
  0  0  1  0  1  1  1  0  1  0  1  0  0  0  0  0  0  0  1  1  0  0  1  0
  1  1  1  0  0  0  1  1  0  1  0  0  0  0  0  0  0  0  1  0  0  1  0  1
  1  1  0  1  0  0  1  1  1  0  0  0  0  0  0  0  0  0  0  1  1  0  1  0
@@ -451,27 +435,27 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">are_disjoint</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">col_id</span><span class="p">,</span><span class="w"> </span><span class="n">row_id</span><span class="p">)</span>
-<span class="w">    </span><span class="n">adj_mtx</span><span class="p">[</span><span class="n">col_id</span><span class="p">,</span><span class="w"> </span><span class="n">row_id</span><span class="p">]</span>
-<span class="k">end</span><span class="p">;</span>
-
-<span class="k">function</span><span class="w"> </span><span class="n">is_latin_square</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">subset</span><span class="p">)</span>
-<span class="w">    </span><span class="n">vect_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binomial</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<span class="w">    </span><span class="n">check_vect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">comb</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">are_disjoint</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">comb</span><span class="o">...</span><span class="p">),</span><span class="w"> </span><span class="n">combinations</span><span class="p">(</span><span class="n">subset</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
-<span class="w">    </span><span class="n">check_vect</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ones</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span><span class="w"> </span><span class="n">vect_size</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">is_latin_square</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">subset</span><span class="p">)</span>
+<span class="w">    </span><span class="n">check_vect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">comb</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">adj_mtx</span><span class="p">[</span><span class="n">comb</span><span class="o">...</span><span class="p">],</span><span class="w"> </span><span class="n">combinations</span><span class="p">(</span><span class="n">subset</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
+<span class="w">    </span><span class="n">check_vect</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ones</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span><span class="w"> </span><span class="n">binomial</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
 <span class="k">end</span><span class="p">;</span>
 
 <span class="k">function</span><span class="w"> </span><span class="n">find_latin_squares</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">)</span>
 <span class="w">    </span><span class="n">subsets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">combinations</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">first</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">)),</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
-<span class="w">    </span><span class="n">filt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">is_latin_square</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">subsets</span><span class="p">)</span>
-<span class="w">    </span><span class="n">collect</span><span class="p">(</span><span class="n">subsets</span><span class="p">)[</span><span class="n">filt</span><span class="p">]</span>
+<span class="w">    </span><span class="n">filter</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">is_latin_square</span><span class="p">(</span><span class="n">adj_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">collect</span><span class="p">(</span><span class="n">subsets</span><span class="p">))</span>
 <span class="k">end</span><span class="p">;</span>
 
-<span class="n">latin_square_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_latin_squares</span><span class="p">(</span><span class="n">n2_adj_mtx</span><span class="p">)</span>
+<span class="nd">@time</span><span class="w"> </span><span class="n">latin_square_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_latin_squares</span><span class="p">(</span><span class="n">n2_adj_mtx</span><span class="p">)</span>
+<span class="nd">@show</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">latin_square_ids</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">latin_square_ids</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.493663 seconds (884.41 k allocations: 38.232 MiB, 93.75% compilation time)
+length(latin_square_ids) * factorial(N) = 576
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24-element Vector{Vector{Int64}}:
  [1, 8, 17, 24]
  [1, 8, 18, 23]
@@ -483,11 +467,7 @@ document.write(`
  [2, 12, 13, 23]
  [3, 8, 17, 22]
  [3, 11, 14, 22]
- [3, 11, 16, 20]
- [3, 12, 14, 21]
- [4, 7, 18, 21]
- [4, 11, 13, 22]
- [4, 12, 13, 21]
+ ⋮
  [4, 12, 15, 19]
  [5, 7, 16, 23]
  [5, 9, 14, 22]
@@ -503,7 +483,173 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">latin_square_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">latin_square_ids</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">n2_dist_mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JLD2</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&quot;data/n2_data.jld2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dist_mtx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24×24 Matrix{Int64}:
+ 4  2  2  1  1  2  2  0  1  0  0  1  1  0  2  1  0  0  0  1  1  2  0  0
+ 2  4  1  2  2  1  0  2  0  1  1  0  0  1  1  2  0  0  1  0  2  1  0  0
+ 2  1  4  2  2  1  1  0  2  1  0  0  2  0  1  0  0  1  1  0  0  0  1  2
+ 1  2  2  4  1  2  0  1  1  2  0  0  0  2  0  1  1  0  0  1  0  0  2  1
+ 1  2  2  1  4  2  0  1  0  0  2  1  1  0  0  0  1  2  2  0  1  0  0  1
+ 2  1  1  2  2  4  1  0  0  0  1  2  0  1  0  0  2  1  0  2  0  1  1  0
+ 2  0  1  0  0  1  4  2  2  1  1  2  2  1  1  0  0  0  1  2  0  1  0  0
+ 0  2  0  1  1  0  2  4  1  2  2  1  1  2  0  1  0  0  2  1  1  0  0  0
+ 1  0  2  1  0  0  2  1  4  2  2  1  1  0  2  0  1  0  0  0  1  0  2  1
+ 0  1  1  2  0  0  1  2  2  4  1  2  0  1  0  2  0  1  0  0  0  1  1  2
+ ⋮              ⋮              ⋮              ⋮              ⋮        
+ 1  2  0  1  0  0  0  1  0  2  0  1  1  2  2  4  1  2  0  0  1  2  0  1
+ 0  0  0  1  1  2  0  0  1  0  2  1  1  2  2  1  4  2  0  1  1  0  2  0
+ 0  0  1  0  2  1  0  0  0  1  1  2  2  1  1  2  2  4  1  0  0  1  0  2
+ 0  1  1  0  2  0  1  2  0  0  1  0  2  1  0  0  0  1  4  2  2  1  1  2
+ 1  0  0  1  0  2  2  1  0  0  0  1  1  2  0  0  1  0  2  4  1  2  2  1
+ 1  2  0  0  1  0  0  1  1  0  2  0  0  0  2  1  1  0  2  1  4  2  2  1
+ 2  1  0  0  0  1  1  0  0  1  0  2  0  0  1  2  0  1  1  2  2  4  1  2
+ 0  0  1  2  0  1  0  0  2  1  1  0  0  1  1  0  2  0  1  2  2  1  4  2
+ 0  0  2  1  1  0  0  0  1  2  0  1  1  0  0  1  0  2  2  1  1  2  2  4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">subset_distance</span><span class="p">(</span><span class="n">dist_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">subset</span><span class="p">)</span>
+<span class="w">    </span><span class="n">sum</span><span class="p">(</span><span class="n">map</span><span class="p">(</span><span class="n">comb</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">dist_mtx</span><span class="p">[</span><span class="n">comb</span><span class="o">...</span><span class="p">],</span><span class="w"> </span><span class="n">combinations</span><span class="p">(</span><span class="n">subset</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="k">function</span><span class="w"> </span><span class="n">subsets_distance</span><span class="p">(</span><span class="n">dist_mtx</span><span class="p">)</span>
+<span class="w">    </span><span class="n">subsets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">combinations</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="n">first</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">dist_mtx</span><span class="p">)),</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<span class="w">    </span><span class="n">map</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">subset_distance</span><span class="p">(</span><span class="n">dist_mtx</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">collect</span><span class="p">(</span><span class="n">subsets</span><span class="p">))</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="nd">@time</span><span class="w"> </span><span class="n">subset_distances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">subsets_distance</span><span class="p">(</span><span class="n">n2_dist_mtx</span><span class="p">)</span>
+<span class="nd">@show</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">subset_distances</span><span class="w"> </span><span class="o">.==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="n">subset_distances</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.200111 seconds (544.86 k allocations: 21.875 MiB, 88.99% compilation time)
+sum(subset_distances .== 0) = 24
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10626-element Vector{Int64}:
+ 10
+ 10
+  9
+  8
+  7
+  8
+  7
+  6
+  6
+  8
+  ⋮
+  9
+ 10
+ 10
+  9
+ 10
+  9
+  9
+ 10
+ 10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simplicial_complex</span><span class="p">(</span><span class="n">latin_square_ids</span><span class="p">)</span>
+<span class="n">h_vector</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5-element Vector{Int64}:
+   1
+  20
+  42
+ -52
+  13
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="n">subset_perms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">permutations</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+<span class="n">pair_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">combinations</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">incl_excl_mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">it</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">!</span><span class="n">n2_adj_mtx</span><span class="p">[</span><span class="n">it</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">it</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]],</span><span class="w"> </span><span class="n">it</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">it</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]]],</span><span class="w"> </span><span class="n">Iterators</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">subset_perms</span><span class="p">,</span><span class="w"> </span><span class="n">pair_ids</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>255024×6 Matrix{Bool}:
+ 1  1  1  1  1  1
+ 1  1  1  1  1  1
+ 1  1  1  1  1  1
+ 1  1  1  1  0  1
+ 1  1  0  1  1  0
+ 1  1  1  1  0  1
+ 1  1  0  1  1  1
+ 1  1  0  1  1  0
+ 1  1  1  1  0  0
+ 1  1  1  1  0  1
+ ⋮              ⋮
+ 1  1  1  1  0  0
+ 1  1  0  1  1  0
+ 1  1  0  1  1  1
+ 1  1  1  1  0  1
+ 1  1  0  1  1  0
+ 1  1  1  1  0  1
+ 1  1  1  1  1  1
+ 1  1  1  1  1  1
+ 1  1  1  1  1  1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">invalid_subset_count</span><span class="p">(</span><span class="n">invalid_pair_position_mtx</span><span class="p">)</span>
+<span class="w">    </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">6</span>
+<span class="w">        </span><span class="n">l_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">combs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collect</span><span class="p">(</span><span class="n">combinations</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">comb</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">combinations</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">)</span>
+<span class="w">            </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ones</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">invalid_pair_position_mtx</span><span class="p">)))</span>
+<span class="w">            </span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">eachcol</span><span class="p">(</span><span class="n">invalid_pair_position_mtx</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="w"> </span><span class="n">comb</span><span class="p">])</span>
+<span class="w">                </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">.&amp;</span><span class="w"> </span><span class="n">col</span>
+<span class="w">            </span><span class="k">end</span>
+
+<span class="w">            </span><span class="n">subtotal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="w">            </span><span class="n">l_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">subtotal</span>
+
+<span class="w">            </span><span class="c"># The distribution of all that has to do with the multiset </span>
+<span class="w">            </span><span class="c"># permutations for the selection of pairs of positions</span>
+<span class="w">            </span><span class="c"># The counts seem to fall pretty well into the categories of them</span>
+<span class="w">            </span><span class="c"># with some counts being the same for different categories</span>
+
+<span class="w">            </span><span class="c"># See the counts by uncommenting below</span>
+<span class="w">            </span><span class="c"># @show (counter(vcat(combs[comb]...)), subtotal)        </span>
+<span class="w">        </span><span class="k">end</span>
+
+<span class="w">        </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">l_count</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end</span>
+
+<span class="w">    </span><span class="n">total</span>
+<span class="k">end</span><span class="p">;</span>
+
+<span class="n">incl_excl_invalid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">invalid_subset_count</span><span class="p">(</span><span class="n">incl_excl_mtx</span><span class="p">)</span>
+<span class="n">latin_squares_by_incl_excl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">binomial</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">incl_excl_invalid</span>
+<span class="w">        </span>
 </pre></div>
 </div>
 </div>
